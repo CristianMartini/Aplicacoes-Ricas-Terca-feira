@@ -6,16 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Storage 1</title>
+    <style>
+         #fconfig{
+            position:absolute;
+            border-radius: 1px; 
+            width: 250px; 
+            padding:10px; 
+            background-color: bisque;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div style="border-radius: 1px; width: 400px; padding:10px; background-color: bisque;">
+    <div class ="forms">
         <p>Exemplo de WebStorage</p>
-        <form name="dados" action="">
+        <div>
+        <button onclick="mostrarOpcoes()">Opções</button>
+        </div>
+        <form name="fconfig" id="fconfig" action="">
             <div>
                 <label for="">Nome </label>
-                <input type="text" name="fname" id="fnome"onclick="">
+                <input type="text" name="fname" id="fnome" onclick=>
             </div>
             <div>
                 <label for="">Cor de fundo </label>
@@ -65,10 +78,18 @@
             }
         }
         function gravar(){
+             let form= document.getElementById("fconfig");
             vnome = document.getElementById("fnome").value;
             localStorage.corFundo = vcorfundo;
             localStorage.corTexto = vcortexto;
             localStorage.nome = vnome;
+            form.style.display = "none"
+
+        }
+        function mostrarOpcoes(){
+            let form = document.getElementById("fconfig");
+            form.style.display ="block";
+
         }
     </script>
 
