@@ -15,7 +15,7 @@
         <form name="dados" action="">
             <div>
                 <label for="">Nome </label>
-                <input type="text" name="fname" onclick="">
+                <input type="text" name="fname" id="fnome"onclick="">
             </div>
             <div>
                 <label for="">Cor de fundo </label>
@@ -35,19 +35,19 @@
             <div>
                 <label for="">Cor de texto </label>
                 <div>
-                    <input type="radio" name="fcort" onclick="defineCor(1,'#1C1C1C')">Preto
+                    <input type="radio" name="fcort" onclick="defineCor(0,'#1C1C1C')">Preto
                 </div>
                 <div>
-                    <input type="radio" name="fcort" onclick="defineCor(1,'#fff')">Branco
+                    <input type="radio" name="fcort" onclick="defineCor(0,'#fff')">Branco
                 </div>
                 <div>
-                    <input type="radio" name="fcort" onclick="defineCor(1,'#FFFF00')">Amarelo
+                    <input type="radio" name="fcort" onclick="defineCor(0,'#FFFF00')">Amarelo
                 </div>
                 <div>
-                    <input type="radio" name="fcort" onclick="defineCor(1,'#0000CD')">Azul
+                    <input type="radio" name="fcort" onclick="defineCor(0,'#0000CD')">Azul
                 </div>
             </div>
-            <button type="button" value="gravar" onclick="">Gravar</button>
+            <button type="button" value="gravar" onclick="gravar()">Gravar</button>
         </form>
     </div>
     <script>
@@ -63,6 +63,12 @@
                 document.body.style.color = cor;
                 vcortexto = cor;
             }
+        }
+        function gravar(){
+            vnome = document.getElementById("fnome").value;
+            localStorage.corFundo = vcorfundo;
+            localStorage.corTexto = vcortexto;
+            localStorage.nome = vnome;
         }
     </script>
 
