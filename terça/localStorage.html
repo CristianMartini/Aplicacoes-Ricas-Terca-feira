@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage 1</title>
+</head>
+
+<body>
+
+    <div style="border-radius: 1px; width: 400px; padding:10px; background-color: bisque;">
+        <p>Exemplo de WebStorage</p>
+        <form name="dados" action="">
+            <div>
+                <label for="">Nome </label>
+                <input type="text" name="fname" onclick="">
+            </div>
+            <div>
+                <label for="">Cor de fundo </label>
+                <div>
+                    <input type="radio" name="fcorf" onclick="defineCor(1,'#f00')">Vermelho
+                </div>
+                <div>
+                    <input type="radio" name="fcorf" onclick="defineCor(1,'#DAA520')">Amarelo
+                </div>
+                <div>
+                    <input type="radio" name="fcorf" onclick="defineCor(1,'#00FF7F')">Verde
+                </div>
+                <div>
+                    <input type="radio" name="fcorf" onclick="defineCor(1,'#191970')">Azul
+                </div>
+            </div>
+            <div>
+                <label for="">Cor de texto </label>
+                <div>
+                    <input type="radio" name="fcort" onclick="defineCor(1,'#1C1C1C')">Preto
+                </div>
+                <div>
+                    <input type="radio" name="fcort" onclick="defineCor(1,'#fff')">Branco
+                </div>
+                <div>
+                    <input type="radio" name="fcort" onclick="defineCor(1,'#FFFF00')">Amarelo
+                </div>
+                <div>
+                    <input type="radio" name="fcort" onclick="defineCor(1,'#0000CD')">Azul
+                </div>
+            </div>
+            <button type="button" value="gravar" onclick="">Gravar</button>
+        </form>
+    </div>
+    <script>
+
+        let vcorfundo, vcortexto, vnome;
+
+
+        function defineCor(operador, cor) {
+            if (operador == 1) {
+                document.body.style.backgroundColor = cor;
+                vcorfundo = cor;
+            } else {
+                document.body.style.color = cor;
+                vcortexto = cor;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
