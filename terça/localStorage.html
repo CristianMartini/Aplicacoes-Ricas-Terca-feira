@@ -26,6 +26,8 @@
         <div>
             <div class="nomeDialog">
                 <label for="">Informe seu nome:</label>
+                <input type="text"name=""id="inputNome">
+                <button onclick="carregarPreferencias()">Carregar Preferencias</button>
             </div>
             <button onclick="mostrarOpcoes()">Opções</button>
         </div>
@@ -85,9 +87,9 @@
         function gravar() {
             let form = document.getElementById("fconfig");
             vnome = document.getElementById("fnome").value;
-            localStorage.corFundo = vcorfundo;
-            localStorage.corTexto = vcortexto;
-            localStorage.nome = vnome;
+            localStorage.setItem(vnome + "_corfundo",vcorfundo);
+            localStorage.setItem(vnome + "_cortexto", vcortexto);
+            localStorage.setItem(vnome + "_nome",vnome);
             form.style.display = "none"
 
         }
