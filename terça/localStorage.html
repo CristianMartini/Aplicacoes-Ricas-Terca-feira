@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Storage 1</title>
     <style>
-         #fconfig{
-            position:absolute;
-            border-radius: 1px; 
-            width: 250px; 
-            padding:10px; 
+        #fconfig {
+            position: absolute;
+            border-radius: 1px;
+            width: 250px;
+            padding: 10px;
             background-color: bisque;
             display: none;
         }
@@ -20,10 +20,14 @@
 
 <body>
 
-    <div class ="forms">
+    <div class="forms">
         <p>Exemplo de WebStorage</p>
+        <p id="painel"></p>
         <div>
-        <button onclick="mostrarOpcoes()">Opções</button>
+            <div class="nomeDialog">
+                <label for="">Informe seu nome:</label>
+            </div>
+            <button onclick="mostrarOpcoes()">Opções</button>
         </div>
         <form name="fconfig" id="fconfig" action="">
             <div>
@@ -62,6 +66,7 @@
             </div>
             <button type="button" value="gravar" onclick="gravar()">Gravar</button>
         </form>
+
     </div>
     <script>
 
@@ -77,8 +82,8 @@
                 vcortexto = cor;
             }
         }
-        function gravar(){
-             let form= document.getElementById("fconfig");
+        function gravar() {
+            let form = document.getElementById("fconfig");
             vnome = document.getElementById("fnome").value;
             localStorage.corFundo = vcorfundo;
             localStorage.corTexto = vcortexto;
@@ -86,11 +91,23 @@
             form.style.display = "none"
 
         }
-        function mostrarOpcoes(){
+        function mostrarOpcoes() {
             let form = document.getElementById("fconfig");
-            form.style.display ="block";
+            form.style.display = "block";
 
         }
+        function inicia() {
+            if (localStorage.nome) {
+                vcorfundo = localStorage.corFundo;
+                vcortexto = localStorage.corTexto;
+                vnome = localStorage.nome;
+
+                defineCor(1,vcorfundo);
+                defineCor(2,vcortexto);
+                document.getElementById("painel").innerHTML = "Bem vindo "+ vnome + "<hr>";
+            }
+        }
+        window.addEventListener("load",inicia);
     </script>
 
 </body>
