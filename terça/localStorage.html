@@ -24,9 +24,9 @@
         <p>Exemplo de WebStorage</p>
         <p id="painel"></p>
         <div>
-            <div class="nomeDialog">
+            <div id="nomeDialog">
                 <label for="">Informe seu nome:</label>
-                <input type="text"name=""id="inputNome">
+                <input type="text" name="" id="inputNome">
                 <button onclick="carregarPreferencias()">Carregar Preferencias</button>
             </div>
             <button onclick="mostrarOpcoes()">Opções</button>
@@ -87,9 +87,9 @@
         function gravar() {
             let form = document.getElementById("fconfig");
             vnome = document.getElementById("fnome").value;
-            localStorage.setItem(vnome + "_corfundo",vcorfundo);
+            localStorage.setItem(vnome + "_corfundo", vcorfundo);
             localStorage.setItem(vnome + "_cortexto", vcortexto);
-            localStorage.setItem(vnome + "_nome",vnome);
+            localStorage.setItem(vnome + "_nome", vnome);
             form.style.display = "none"
 
         }
@@ -98,18 +98,23 @@
             form.style.display = "block";
 
         }
-        function inicia() {
-            if (localStorage.nome) {
-                vcorfundo = localStorage.corFundo;
-                vcortexto = localStorage.corTexto;
-                vnome = localStorage.nome;
+        function carregarPreferencias() {
+            vnome = document.getElementById("inputNome").value;
+            if (localStorage.getItem(vnome + "_nome")) {
+                vcorfundo = localStorage.getItem(vnome + "_corfundo")
+                vcortexto = localStorage.getItem(vnome + "_cortexo");
 
-                defineCor(1,vcorfundo);
-                defineCor(2,vcortexto);
-                document.getElementById("painel").innerHTML = "Bem vindo "+ vnome + "<hr>";
+                defineCor(1, vcorfundo);
+                defineCor(2, vcortexto);
+                document.getElementById("painel").innerHTML = "Bem vindo " + vnome + "<hr>";
+                document.getElementById("nomeDialog").style.display = "none"
+            }
+            else {
+                alert("Perfil nâo encontrado");
+
             }
         }
-        window.addEventListener("load",inicia);
+
     </script>
 
 </body>
