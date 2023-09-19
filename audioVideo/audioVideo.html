@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio e Video</title>
+    <script src="https://kit.fontawesome.com/00256cd3c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="video">
+        <video id="video"controls
+         width="500px" height="350px" poster="image/capa.jpg">
+            <source src="image/video1.mp4">
+        </video>
+        <div class="button">
+            <button id="play-video" ><i class="fa-solid fa-play" ></i>Play</button>
+            <button id="pause-video"><i class="fa-solid fa-pause"></i>Pause</button>
+            <button id="mute-video"><i class="fa-solid fa-volume-xmark"></i>Mute</i></button>
+            <button id="back-video"><i class="fa-solid fa-backward"></i>Retroceder</button>
+            <button id="advanced-video"><i class="fa-solid fa-forward"></i>Avançar</button>
+            <button id="fullscreen-video"><i class="fa-solid fa-expand"></i>fullScreen</button>
+        </div>
+        <audio id="audio"  >
+            <source src="image/Death Grips - The Fever (Aye Aye).mp3">
+        </audio>
+        <div class="button">
+            <button id="play-audio" ><i class="fa-solid fa-play"></i>Play Audio</button>
+            <button id="pause-audio"><i class="fa-solid fa-pause"></i>Pause Audio</button>
+            <button id="mute-audio"><i class="fa-solid fa-volume-xmark"></i>Mute Audio</button>
+            <button id="back-audio"><i class="fa-solid fa-backward"></i>Retroceder Audio</button>
+            <button id="advanced-audio"><i class="fa-solid fa-forward"></i>Avançar Audio</button>
+            <button id="fullscreen-audio"><i class="fa-solid fa-expand"></i>FullScreen Audio</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

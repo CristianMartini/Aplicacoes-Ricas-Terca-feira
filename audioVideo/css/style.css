@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.video,
+.audio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.video video,
+.audio audio {
+    width: 500px;
+    height: 350px;
+}
+
+.button,
+.audio .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button button {
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    padding: 8px 16px;
+}
