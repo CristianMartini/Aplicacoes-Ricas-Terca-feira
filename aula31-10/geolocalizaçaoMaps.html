@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocalização via Google Maps</title>
+    <script
+        
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT5tLu1TAOBPoExfH5ZAM12z-eMC-GBl8&callback=initMap&v=weekly" defer></script>
+</head>
+<body>
+    <label>
+        Latitude:<span id="lat"></span>
+    </label>
+    <br/>
+    <label>
+        Longitude<span id="lon"></span>
+    </label>
+    <p>Caso tenha a key da API do Google Maps, aparecerá o mapa abaixo com um marcador de posição</p>
+    <div id = "map" style = "width: 600px; height: 600px">
+    </div>
+    <script>
+        var lat;
+        var lon;
+        function getLocation() {
+            //testar se o navegado suporta a API de localização
+            if(!navigator.geolocation){
+                return null;
+            }
+            navigator.geolocation.getCurrentPosition(function(pos){
+                lat = (document.getElementById("lat").innerHTML = pos.coords.latitude);
+                lon = (document.getElementById("lon").innerHTML = pos.coords.longitude);
+                initMap();
+
+            })
+        }
+        //a função a seguir será responsável por inicializar e configurar o mapa do Google Maps na nossa página web
+        function initMap() {
+            const nossaLocalizacao = {lat:lat,lng:lon};
+            //um novo objeto Map é criado a partir da classe google.maps.Map
+            map = new google.maps.Map(document.getElementById("map"),{
+                //a seguir, configuramos o nosso mapa
+                zoom:15,
+                center: nossaLocalizacao,
+            });
+            
+            //criando um marcador posicionado na nossaLocalizacao
+            const marker = new google.maps.Marker({//um novo objeto Marker é criado a partir da classe google.maps.Marker
+                position:nossaLocalizacao,
+                map: map,//o nome depois dos dois pontos é o nome do nosso mapa
+            });
+        }
+            getLocation();
+    </script>
+</body>
+</html>
+AIzaSyAT5tLu1TAOBPoExfH5ZAM12z-eMC-GBl8
