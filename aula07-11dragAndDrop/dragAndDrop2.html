@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        p {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        #div1 {
+
+            width: 305px;
+            height: 105px;
+            padding: 10px;
+        
+            border: 1px solid #aaaaaa;
+        }
+
+        .container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .container1 {
+            flex-direction: column;
+            background-color: rgb(4, 240, 43);
+        }
+    </style>
+    <script>//a funçao pode ter qualquer nome
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+
+<body>
+    <p>Arraste a imagem para o retangulo</p>
+    <div class="container">
+        <div class="container1">
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)">
+                <img src="https://picsum.photos/300/100" alt="" id="drag1" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+
+        </div>
+
+        <div class="container1">
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+        </div>
+      
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        p {
+            display: flex;
+            font-size: 40px;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 25px;
+
+
+        }
+
+        #div1 {
+
+            width: 305px;
+            height: 105px;
+            padding: 10px;
+            margin-left: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script>//a funçao pode ter qualquer nome
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+
+<body>
+    <p>Arraste a imagem para o retangulo</p>
+    <div class="container">
+
+        <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <img src="https://picsum.photos/300/100" alt="" id="drag1" draggable="true" ondragstart="drag(event)">
+        </div>
+        <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+        <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+        <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)">
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
